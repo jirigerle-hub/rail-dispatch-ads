@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – Rail Dispatch</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a2e;
+      color: #eee;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* ── Header ── */
+    header {
+      background: #12122a;
+      border-bottom: 3px solid #f0c040;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header a.back {
+      color: #f0c040;
+      text-decoration: none;
+      font-size: 1.3rem;
+      line-height: 1;
+      transition: opacity 0.2s;
+    }
+    header a.back:hover { opacity: 0.7; }
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: #f0c040;
+      text-transform: uppercase;
+    }
+    header span.subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      margin-left: 4px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: #16162c;
+      border-bottom: 1px solid #2a2a4a;
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+    }
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.82rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover { background: #f0c040; color: #1a1a2e; }
+
+    /* ── Layout ── */
+    .wrapper {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+      gap: 32px;
+    }
+
+    /* ── Sidebar TOC ── */
+    aside {
+      flex: 0 0 220px;
+    }
+    aside .toc {
+      background: #16162c;
+      border: 1px solid #2a2a4a;
+      border-radius: 10px;
+      padding: 18px;
+      position: sticky;
+      top: 80px;
+    }
+    aside .toc h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #f0c040;
+      margin-bottom: 12px;
+    }
+    aside .toc ol {
+      list-style: none;
+      padding: 0;
+      counter-reset: toc;
+    }
+    aside .toc ol li {
+      counter-increment: toc;
+      margin-bottom: 6px;
+    }
+    aside .toc ol li a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.82rem;
+      display: flex;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    aside .toc ol li a::before {
+      content: counter(toc) ".";
+      color: #f0c040;
+      flex-shrink: 0;
+    }
+    aside .toc ol li a:hover { color: #f0c040; }
+
+    /* ── Main content ── */
+    main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .updated {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 28px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      font-size: 1.25rem;
+      color: #f0c040;
+      border-left: 4px solid #f0c040;
+      padding-left: 12px;
+      margin-bottom: 16px;
+      scroll-margin-top: 80px;
+    }
+    section h3 {
+      font-size: 1rem;
+      color: #f0c040;
+      margin: 18px 0 8px;
+    }
+    section p {
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+    section ul, section ol {
+      margin: 8px 0 12px 20px;
+      color: #ccc;
+    }
+    section li { margin-bottom: 4px; }
+
+    /* ── Highlight boxes ── */
+    .box {
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+    .box-info {
+      background: #1e2a4a;
+      border-left: 4px solid #4a8cff;
+    }
+    .box-warning {
+      background: #2a1e12;
+      border-left: 4px solid #f0c040;
+    }
+    .box-success {
+      background: #142a1a;
+      border-left: 4px solid #4caf50;
+    }
+    .box p { margin: 0; color: #ccc; font-size: 0.9rem; }
+    .box strong { color: #eee; }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 14px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    thead th {
+      background: #f0c040;
+      color: #1a1a2e;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(odd)  { background: #1e1e3a; }
+    tbody tr:nth-child(even) { background: #22223e; }
+    tbody td {
+      padding: 9px 14px;
+      color: #ccc;
+      border-bottom: 1px solid #2a2a4a;
+    }
+
+    /* ── Rights grid ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .right-card {
+      background: #16162c;
+      border: 1px solid #2a2a4a;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .right-card .art {
+      font-size: 0.7rem;
+      color: #f0c040;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .right-card h4 {
+      font-size: 0.9rem;
+      color: #eee;
+      margin-bottom: 6px;
+    }
+    .right-card p {
+      font-size: 0.82rem;
+      color: #999;
+      margin: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.75rem;
+      color: #555;
+      border-top: 1px solid #2a2a4a;
+    }
+    footer a { color: #888; text-decoration: none; }
+    footer a:hover { color: #f0c040; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      aside { display: none; }
+      .wrapper { padding: 20px 16px 48px; }
+      .rights-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="index.html" title="Zpět na hlavní stránku">&#8592;</a>
+  <h1>Rail Dispatch <span class="subtitle">/ Privacy Policy</span></h1>
+</header>
+
+<nav>
+  <a href="#kdo-jsme">Kdo jsme</a>
+  <a href="#sbirana-data">Co sbíráme</a>
+  <a href="#pravni-zaklad">Právní základ</a>
+  <a href="#treti-strany">Třetí strany</a>
+  <a href="#transfer-eu">Transfer dat mimo EU</a>
+  <a href="#uchovavani">Uchovávání dat</a>
+  <a href="#prava-gdpr">Práva dle GDPR</a>
+  <a href="#deti">Ochrana dětí</a>
+  <a href="#bezpecnost">Bezpečnost</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<div class="wrapper">
+
+  <aside>
+    <div class="toc">
+      <h2>Obsah</h2>
+      <ol>
+        <li><a href="#kdo-jsme">Kdo jsme</a></li>
+        <li><a href="#sbirana-data">Jaké informace sbíráme</a></li>
+        <li><a href="#pravni-zaklad">Právní základ</a></li>
+        <li><a href="#treti-strany">Přístup třetích stran</a></li>
+        <li><a href="#transfer-eu">Transfer dat mimo EU</a></li>
+        <li><a href="#uchovavani">Uchovávání dat</a></li>
+        <li><a href="#prava-gdpr">Vaše práva dle GDPR</a></li>
+        <li><a href="#deti">Ochrana dětí</a></li>
+        <li><a href="#bezpecnost">Bezpečnost</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ol>
+    </div>
+  </aside>
+
+  <main>
+    <p class="updated">Poslední aktualizace: 5. dubna 2026</p>
+
+    <div class="box box-info">
+      <p>Tyto zásady ochrany osobních údajů se vztahují na aplikaci <strong>Rail Dispatch</strong> (com.raildispatch.bohumin) pro mobilní zařízení, která je poskytována zdarma jako služba podporovaná reklamami.</p>
+    </div>
+
+    <!-- 1 -->
+    <section id="kdo-jsme">
+      <h2>1. Kdo jsme</h2>
+      <p>Správce osobních údajů ve smyslu GDPR:</p>
+      <ul>
+        <li><strong>Jméno:</strong> Jiri Gerle</li>
+        <li><strong>E-mail:</strong> <a href="mailto:jiri.gerle@gmail.com" style="color:#f0c040;">jiri.gerle@gmail.com</a></li>
+        <li><strong>Aplikace:</strong> Rail Dispatch (Android)</li>
+        <li><strong>ID aplikace:</strong> com.raildispatch.bohumin</li>
+      </ul>
+    </section>
+
+    <!-- 2 -->
+    <section id="sbirana-data">
+      <h2>2. Jaké informace sbíráme</h2>
+
+      <h3>2.1 Automaticky sbíraná data</h3>
+      <ul>
+        <li><strong>Informace o zařízení:</strong> Typ, model, operační systém a verze</li>
+        <li><strong>Identifikátory zařízení:</strong> Jedinečné ID zařízení, Android Advertising ID</li>
+        <li><strong>Data o používání:</strong> Funkce aplikace, herní skóre, události v aplikaci</li>
+        <li><strong>Zprávy o pádu:</strong> Technické informace o chybách aplikace</li>
+        <li><strong>Přibližná poloha:</strong> Určena z IP adresy (ne GPS)</li>
+      </ul>
+
+      <h3>2.2 Data třetích stran</h3>
+      <p>Osobní data (jméno, e-mail, telefon) přímo neshromažďujeme. Data mohou sbírat třetí strany, které používáme — viz sekce 4.</p>
+
+      <div class="box box-success">
+        <p><strong>Co NESHROMAŽĎUJEME:</strong> jméno, e-mail, telefonní číslo, fyzickou adresu, platební informace, přesnou GPS polohu, data z kamery nebo mikrofonu, kontakty ani osobní soubory.</p>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section id="pravni-zaklad">
+      <h2>3. Právní základ zpracování (čl. 6 GDPR)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Typ dat</th>
+              <th>Právní základ</th>
+              <th>Účel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Advertising ID, ID zařízení</td>
+              <td>Oprávněný zájem</td>
+              <td>Zobrazování cílených reklam, funkčnost aplikace</td>
+            </tr>
+            <tr>
+              <td>Analytika použití</td>
+              <td>Oprávněný zájem</td>
+              <td>Zlepšení výkonu a uživatelského zážitku</td>
+            </tr>
+            <tr>
+              <td>Zprávy o pádu</td>
+              <td>Oprávněný zájem</td>
+              <td>Oprava chyb a zvýšení stability</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-warning">
+        <p>Náš zájem na zobrazování relevantních reklam a vylepšování aplikace převažuje nad zájmy na ochranu soukromí, neboť shromažďujeme pouze necitlivá agregovaná data a zajišťujeme transparentnost prostřednictvím těchto zásad.</p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section id="treti-strany">
+      <h2>4. Přístup třetích stran</h2>
+
+      <h3>4.1 Google AdMob</h3>
+      <ul>
+        <li><strong>Účel:</strong> Zobrazování reklam</li>
+        <li><strong>Sbíraná data:</strong> Advertising ID, informace o zařízení, aktivita v aplikaci</li>
+        <li><strong>Soulad s GDPR:</strong> Google AdMob splňuje požadavky GDPR</li>
+        <li><strong>Zásady ochrany dat:</strong> <a href="https://policies.google.com/privacy" target="_blank" style="color:#f0c040;">policies.google.com/privacy</a></li>
+      </ul>
+
+      <h3>4.2 Google Play Services</h3>
+      <ul>
+        <li><strong>Účel:</strong> Funkčnost aplikace, zprávy o pádu, analytika</li>
+        <li><strong>Sbíraná data:</strong> Informace o zařízení, použití aplikace, data o pádu</li>
+        <li><strong>Soulad s GDPR:</strong> Google je certifikovaný EU zpracovatel</li>
+        <li><strong>Zásady ochrany dat:</strong> <a href="https://policies.google.com/privacy" target="_blank" style="color:#f0c040;">policies.google.com/privacy</a></li>
+      </ul>
+
+      <h3>4.3 Ostatní příjemci</h3>
+      <p>Data nesdílíme s dalšími třetími stranami s výjimkou případů, kdy to vyžaduje zákon, prosazení smluvních podmínek nebo ochrana našich práv.</p>
+    </section>
+
+    <!-- 5 -->
+    <section id="transfer-eu">
+      <h2>5. Transfer dat mimo EU/EEA</h2>
+      <p>Google AdMob a Google Play Services mohou přenášet data do USA a jiných zemí mimo EU/EEA.</p>
+      <div class="box box-info">
+        <p><strong>Záruky:</strong> Google implementoval Standardní smluvní doložky (SCC) schválené EU. Více informací: <a href="https://policies.google.com/privacy/safeguards" target="_blank" style="color:#f0c040;">policies.google.com/privacy/safeguards</a></p>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section id="uchovavani">
+      <h2>6. Uchovávání dat</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Typ dat</th>
+              <th>Doba uchovávání</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Advertising ID</td>
+              <td>13 měsíců (zásady Google AdMob)</td>
+            </tr>
+            <tr>
+              <td>Zprávy o pádu aplikace</td>
+              <td>90 dní</td>
+            </tr>
+            <tr>
+              <td>Analytika použití</td>
+              <td>26 měsíců</td>
+            </tr>
+            <tr>
+              <td>Identifikátory zařízení</td>
+              <td>Po dobu instalace aplikace</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Po uplynutí doby uchovávání jsou data automaticky smazána nebo anonymizována.</p>
+    </section>
+
+    <!-- 7 -->
+    <section id="prava-gdpr">
+      <h2>7. Vaše práva dle GDPR (uživatelé EU)</h2>
+      <p>Pokud se nacházíte v Evropské unii, máte dle GDPR tato práva:</p>
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="art">Čl. 15</div>
+          <h4>Právo na přístup</h4>
+          <p>Právo požádat o informace o tom, jaká osobní data o vás uchováváme.</p>
+        </div>
+        <div class="right-card">
+          <div class="art">Čl. 16</div>
+          <h4>Právo na opravu</h4>
+          <p>Právo požádat o opravu nepřesných osobních dat.</p>
+        </div>
+        <div class="right-card">
+          <div class="art">Čl. 17</div>
+          <h4>Právo na výmaz</h4>
+          <p>Právo požádat o smazání vašich osobních dat („právo být zapomenut").</p>
+        </div>
+        <div class="right-card">
+          <div class="art">Čl. 18</div>
+          <h4>Právo na omezení</h4>
+          <p>Právo požádat o omezení zpracování vašich dat.</p>
+        </div>
+        <div class="right-card">
+          <div class="art">Čl. 20</div>
+          <h4>Právo na přenositelnost</h4>
+          <p>Právo obdržet vaše data ve strojově čitelném formátu.</p>
+        </div>
+        <div class="right-card">
+          <div class="art">Čl. 21</div>
+          <h4>Právo vznést námitku</h4>
+          <p>Právo vznést námitku proti zpracování dat pro reklamní profilování.</p>
+        </div>
+      </div>
+      <div class="box box-info">
+        <p><strong>Podání stížnosti – Česká republika:</strong> Úřad pro ochranu osobních údajů (ÚOOÚ) – <a href="https://www.uoou.cz/" target="_blank" style="color:#f0c040;">www.uoou.cz</a><br>
+        <strong>Ostatní státy EU:</strong> <a href="https://edpb.europa.eu/about-edpb/board/members_en" target="_blank" style="color:#f0c040;">edpb.europa.eu</a></p>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section id="deti">
+      <h2>8. Ochrana dětí</h2>
+      <p>Aplikace je určena pro uživatele ve věku <strong>13 let a starší</strong>.</p>
+      <ul>
+        <li>Vědomě neshromažďujeme osobní údaje od dětí mladších 13 let.</li>
+        <li>Pokud zjistíme, že jsme data dítěte mladšího 13 let shromáždili, okamžitě je smažeme.</li>
+        <li>V EU platí pro uživatele ve věku 13–15 let zvláštní pravidla souhlasu (dle čl. 8 GDPR).</li>
+      </ul>
+      <p>Pokud se domníváte, že jsme shromáždili data dítěte mladšího 13 let, kontaktujte nás na <a href="mailto:jiri.gerle@gmail.com" style="color:#f0c040;">jiri.gerle@gmail.com</a>.</p>
+    </section>
+
+    <!-- 9 -->
+    <section id="bezpecnost">
+      <h2>9. Bezpečnost</h2>
+      <ul>
+        <li><strong>Šifrování přenosu:</strong> Data jsou přenášena pomocí HTTPS/TLS šifrování</li>
+        <li><strong>Třetí strany:</strong> Spolupracujeme pouze s GDPR-compliant poskytovateli</li>
+        <li><strong>Žádná citlivá data:</strong> Neukládáme hesla, platební ani osobní identifikační údaje</li>
+        <li><strong>Pravidelné aktualizace:</strong> Aplikace dostává pravidelné bezpečnostní aktualizace</li>
+      </ul>
+      <div class="box box-warning">
+        <p>Přestože implementujeme bezpečnostní opatření odpovídající standardům oboru, žádný systém není zcela bezpečný. Nelze zaručit absolutní bezpečnost.</p>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section id="kontakt">
+      <h2>10. Kontakt</h2>
+      <p>Pokud máte dotazy k těmto zásadám nebo chcete uplatnit svá práva, kontaktujte nás:</p>
+      <div class="box box-info">
+        <p><strong>E-mail:</strong> <a href="mailto:jiri.gerle@gmail.com" style="color:#f0c040;">jiri.gerle@gmail.com</a><br>
+        Do zprávy uveďte: popis požadavku (přístup, smazání, námitka…) a způsob ověření totožnosti.<br>
+        Na vaši žádost odpovíme do <strong>30 dní</strong> dle požadavků GDPR.</p>
+      </div>
+      <p style="margin-top:14px;font-size:0.85rem;color:#888;">Tyto zásady mohou být čas od času aktualizovány. Datum poslední změny je vždy uveden v záhlaví stránky.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  © 2026 Rail Dispatch &nbsp;|&nbsp;
+  <a href="index.html">Hlavní stránka</a> &nbsp;|&nbsp;
+  <a href="app-ads.txt">app-ads.txt</a>
+</footer>
+
+</body>
+</html>
