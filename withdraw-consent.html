@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odvolání souhlasu – Rail Dispatch</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a2e;
+      color: #eee;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      padding: 0 0 48px;
+    }
+    header {
+      background: #12122a;
+      border-bottom: 2px solid #f0c040;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    header a.back {
+      color: #f0c040;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+    header a.back:hover { text-decoration: underline; }
+    header h1 {
+      font-size: 1.4rem;
+      color: #f0c040;
+      letter-spacing: 1px;
+    }
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    .intro {
+      background: #12122a;
+      border-left: 4px solid #f0c040;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .intro h2 {
+      color: #f0c040;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .intro p {
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+    .intro a { color: #f0c040; }
+    form {
+      background: #12122a;
+      border: 1px solid #2a2a4a;
+      border-radius: 12px;
+      padding: 32px;
+    }
+    form h2 {
+      color: #f0c040;
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #2a2a4a;
+      padding-bottom: 10px;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    label {
+      display: block;
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+    label .required {
+      color: #f0c040;
+      margin-left: 3px;
+    }
+    label .optional {
+      color: #777;
+      font-size: 0.8rem;
+      margin-left: 4px;
+    }
+    input[type="email"],
+    input[type="text"],
+    textarea {
+      width: 100%;
+      background: #1a1a2e;
+      border: 1px solid #3a3a5a;
+      border-radius: 8px;
+      color: #eee;
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input[type="email"]:focus,
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: #f0c040;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+    .gdpr-note {
+      background: #1e1e38;
+      border: 1px solid #2a2a4a;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      font-size: 0.82rem;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    .gdpr-note strong { color: #f0c040; }
+    button[type="submit"] {
+      width: 100%;
+      background: #f0c040;
+      color: #1a1a2e;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 14px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button[type="submit"]:hover { background: #ffd966; }
+
+    /* Confirmation message */
+    #confirmation {
+      display: none;
+      background: #12122a;
+      border: 2px solid #f0c040;
+      border-radius: 12px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    #confirmation .icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    #confirmation h2 {
+      color: #f0c040;
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+    }
+    #confirmation p {
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    #confirmation a.btn-back {
+      display: inline-block;
+      margin-top: 20px;
+      background: #f0c040;
+      color: #1a1a2e;
+      font-weight: bold;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    #confirmation a.btn-back:hover { background: #ffd966; }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+    footer a { color: #888; }
+    footer a:hover { color: #f0c040; }
+    @media (max-width: 600px) {
+      form { padding: 20px 16px; }
+      header h1 { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="privacy-policy.html">← Privacy Policy</a>
+  <h1>⚠️ Odvolání souhlasu</h1>
+</header>
+
+<div class="container">
+
+  <div class="intro">
+    <h2>Vaše právo odvolat souhlas / Your Right to Withdraw Consent</h2>
+    <p>
+      Podle čl. 21 GDPR máte právo kdykoli odvolat souhlas se zpracováním vašich osobních údajů.
+      Po obdržení vaší žádosti budou vaše data smazána do <strong style="color:#f0c040;">30 dní</strong>.
+    </p>
+    <p>
+      Under <strong>GDPR Article 21</strong>, you have the right to withdraw your data processing consent at any time.
+      Your data will be deleted within <strong style="color:#f0c040;">30 days</strong> of receiving your request.
+    </p>
+  </div>
+
+  <!-- Form -->
+  <form id="withdrawForm" novalidate>
+    <h2>📝 Formulář pro odvolání souhlasu / Consent Withdrawal Form</h2>
+
+    <div class="form-group">
+      <label for="email">E-mailová adresa / Email Address <span class="required">*</span></label>
+      <input type="email" id="email" name="email" required placeholder="vas@email.cz">
+    </div>
+
+    <div class="form-group">
+      <label for="deviceId">
+        ID zařízení nebo App ID / Device ID or App ID
+        <span class="optional">(volitelné / optional)</span>
+      </label>
+      <input type="text" id="deviceId" name="deviceId" placeholder="např. / e.g. com.raildispatch.bohumin">
+    </div>
+
+    <div class="form-group">
+      <label for="reason">
+        Důvod odvolání / Reason for Withdrawal
+        <span class="optional">(volitelné / optional)</span>
+      </label>
+      <textarea id="reason" name="reason" placeholder="Uveďte důvod odvolání souhlasu (nepovinné) / Please describe your reason (optional)"></textarea>
+    </div>
+
+    <div class="gdpr-note">
+      <strong>📋 GDPR čl. 21 / GDPR Article 21:</strong><br>
+      Odesláním tohoto formuláře uplatňujete své právo vznést námitku / odvolat souhlas se zpracováním vašich osobních
+      údajů. Vaše žádost bude zpracována a potvrzena do <strong>30 dní</strong>. Odvolání souhlasu nemá vliv na
+      zákonnost zpracování před jeho odvoláním.<br><br>
+      By submitting this form, you exercise your right to object to / withdraw consent for the processing of your personal data.
+      Your request will be processed and confirmed within <strong>30 days</strong>.
+    </div>
+
+    <button type="submit">✉️ Odeslat žádost / Submit Request</button>
+  </form>
+
+  <!-- Confirmation -->
+  <div id="confirmation">
+    <div class="icon">✅</div>
+    <h2>Žádost odeslána / Request Submitted</h2>
+    <p>Vaše žádost o odvolání souhlasu byla úspěšně odeslána.</p>
+    <p>Your consent withdrawal request has been successfully submitted.</p>
+    <p>Odpovíme vám do <strong>30 dní</strong>. We will respond within <strong>30 days</strong>.</p>
+    <a class="btn-back" href="privacy-policy.html">← Zpět na Privacy Policy</a>
+  </div>
+
+  <footer>
+    <p>© 2026 Rail Dispatch &nbsp;|&nbsp;
+       <a href="index.html">Hlavní stránka</a> &nbsp;|&nbsp;
+       <a href="privacy-policy.html">Privacy Policy</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  const form = document.getElementById('withdrawForm');
+  const confirmation = document.getElementById('confirmation');
+  const emailInput = document.getElementById('email');
+
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = emailInput.value.trim();
+    if (!EMAIL_RE.test(email)) {
+      emailInput.setCustomValidity('Zadejte platnou e-mailovou adresu / Please enter a valid email address.');
+      emailInput.reportValidity();
+      return;
+    }
+    emailInput.setCustomValidity('');
+
+    const deviceId = document.getElementById('deviceId').value.trim();
+    const reason = document.getElementById('reason').value.trim();
+
+    const subject = encodeURIComponent('Odvolání souhlasu se zpracováním osobních údajů / Consent Withdrawal Request');
+    let body = 'E-mail: ' + email + '\n';
+    if (deviceId) body += 'Device ID / App ID: ' + deviceId + '\n';
+    if (reason) body += 'Důvod / Reason: ' + reason + '\n';
+    body += '\n--- GDPR Article 21 - Consent Withdrawal Request ---';
+
+    const mailtoUrl = 'mailto:jiri.gerle@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+    window.location.href = mailtoUrl;
+
+    // Show confirmation after a short delay to allow mailto to open
+    setTimeout(function() {
+      form.style.display = 'none';
+      confirmation.style.display = 'block';
+    }, 800);
+  });
+</script>
+
+</body>
+</html>
