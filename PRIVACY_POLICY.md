@@ -6,7 +6,7 @@
 
 **Data Controller (Owner):**
 - Name: Jiri Gerle
-- Email: jiri.gerle@gmail.com
+- Email: raildispatch26@gmail.com
 - Application: Rail Dispatch (mobile app for iOS and Android)
 - Application ID: com.raildispatch.bohumin
 
@@ -147,7 +147,7 @@ The Application is intended for users aged **13 and above**.
 - If we discover we have collected data from a child under 13, we will delete it immediately.
 - For EU residents, special consent rules apply for users aged 13-15 (varies by country).
 
-If you believe we have collected information from a child under 13, please contact us immediately at jiri.gerle@gmail.com.
+If you believe we have collected information from a child under 13, please contact us immediately at raildispatch26@gmail.com.
 
 ---
 
@@ -182,7 +182,7 @@ The most direct way to stop data collection is to uninstall the Application from
 
 ## 11. Data Protection Officer
 
-We do not have a formally appointed Data Protection Officer as we are a small organization. However, you can direct privacy questions to jiri.gerle@gmail.com.
+We do not have a formally appointed Data Protection Officer as we are a small organization. However, you can direct privacy questions to raildispatch26@gmail.com.
 
 ---
 
@@ -204,7 +204,7 @@ We may update this Privacy Policy from time to time to reflect:
 
 If you have questions about this Privacy Policy or wish to exercise any of your rights under GDPR, please contact:
 
-**Email:** jiri.gerle@gmail.com
+**Email:** raildispatch26@gmail.com
 
 **What to Include in Your Request:**
 - Your full name and email address
@@ -242,7 +242,7 @@ If you are a California resident, you have additional rights under the Californi
 - Right to opt-out of selling of personal data (we do not sell personal data)
 - Right to non-discrimination if you exercise your CCPA rights
 
-For CCPA requests, contact: jiri.gerle@gmail.com
+For CCPA requests, contact: raildispatch26@gmail.com
 
 ---
 
@@ -268,4 +268,4 @@ This Privacy Policy also complies with:
 
 **Thank you for using Rail Dispatch!**
 
-For any questions or concerns about this Privacy Policy, please contact us at **jiri.gerle@gmail.com**.
+For any questions or concerns about this Privacy Policy, please contact us at **raildispatch26@gmail.com**.

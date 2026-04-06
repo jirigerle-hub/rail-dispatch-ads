@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,6 +51,74 @@
       transition: background 0.2s;
     }
     a.badge:hover { background: #ffd966; }
+    .social-links {
+      margin-top: 40px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 14px 22px;
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      border: none;
+    }
+    .social-links a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .social-links a[href*="youtube"] {
+      background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+      color: #ffffff;
+    }
+    .social-links a[href*="youtube"]:hover {
+      background: linear-gradient(135deg, #ff3333 0%, #ff0000 100%);
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .social-links a[href*="tiktok"] {
+      background: linear-gradient(135deg, #25f4ee 0%, #00d9d9 100%);
+      color: #000000;
+      font-weight: 800;
+    }
+    .social-links a[href*="tiktok"]:hover {
+      background: linear-gradient(135deg, #60ffff 0%, #25f4ee 100%);
+      box-shadow: 0 10px 30px rgba(37, 244, 238, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .social-links a[href*="instagram"] {
+      background: linear-gradient(135deg, #e4405f 0%, #d31e6f 100%);
+      color: #ffffff;
+    }
+    .social-links a[href*="instagram"]:hover {
+      background: linear-gradient(135deg, #ff6b95 0%, #e4405f 100%);
+      box-shadow: 0 10px 30px rgba(228, 64, 95, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .social-links a[href*="discord"] {
+      background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
+      color: #ffffff;
+    }
+    .social-links a[href*="discord"]:hover {
+      background: linear-gradient(135deg, #7c8fff 0%, #5865f2 100%);
+      box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .social-links a[href*="reddit"] {
+      background: linear-gradient(135deg, #ff4500 0%, #cc3700 100%);
+      color: #ffffff;
+    }
+    .social-links a[href*="reddit"]:hover {
+      background: linear-gradient(135deg, #ff6b33 0%, #ff4500 100%);
+      box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
     footer {
       margin-top: 48px;
       font-size: 0.75rem;
@@ -61,10 +129,17 @@
 <body>
   <img class="logo" src="logo.png" alt="Rail Dispatch logo">
   <h1>Rail Dispatch</h1>
-  <p class="desc">Strategická hra o řízení vlakového provozu. Vypravuj vlaky, plň mise a dávej pozor na kolize!</p>
+  <p class="desc">Strategic train dispatch management game. Manage trains, complete missions, and avoid collisions!</p>
   <a class="badge" href="https://play.google.com/store/apps/details?id=com.raildispatch.bohumin" target="_blank">
-    ▶ Stáhnout na Google Play
+    ▶ Download on Google Play
   </a>
-  <footer>© 2026 Rail Dispatch &nbsp;|&nbsp; <a href="PRIVACY_POLICY.html" style="color:#555;">Privacy Policy</a> &nbsp;|&nbsp; <a href="app-ads.txt" style="color:#555;">app-ads.txt</a></footer>
+  <div class="social-links">
+    <a href="https://www.youtube.com/@RailDispatch-q4s" target="_blank" rel="noopener">▶ YouTube</a>
+    <a href="https://www.tiktok.com/@raildispatch" target="_blank" rel="noopener">♪ TikTok</a>
+    <a href="https://www.instagram.com/raildispatch/" target="_blank" rel="noopener">📷 Instagram</a>
+    <a href="https://discord.gg/dU23WYfcQn" target="_blank" rel="noopener">💬 Discord</a>
+    <a href="https://www.reddit.com/r/raildispatch/" target="_blank" rel="noopener">🔥 Reddit</a>
+  </div>
+  <footer>© 2026 Rail Dispatch &nbsp;|&nbsp; <a href="PRIVACY_POLICY.html" style="color:#555;">Privacy Policy</a> &nbsp;|&nbsp; <a href="withdraw-consent.html" style="color:#555;">Manage Consent</a> &nbsp;|&nbsp; <a href="app-ads.txt" style="color:#555;">app-ads.txt</a></footer>
 </body>
 </html>
